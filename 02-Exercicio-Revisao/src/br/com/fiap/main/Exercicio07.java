@@ -13,14 +13,16 @@ public class Exercicio07 {
 		List<ContaCorrente> lista = new ArrayList<>();
 		
 		//Adicionar 3 contas
-		lista.add(new ContaCorrente(1,23, Calendar.getInstance(), 2000, TipoConta.ESPECIAL));
-		lista.add(new ContaCorrente(1, 323, Calendar.getInstance(), 3000, TipoConta.PREMIUM));
-		lista.add(new ContaCorrente(1,343, Calendar.getInstance(), 4000, TipoConta.COMUM));
+		lista.add(new ContaCorrente(1, 241, Calendar.getInstance(), 188, TipoConta.COMUM));
+		lista.add(new ContaCorrente(1, 223, Calendar.getInstance(), 782, TipoConta.PREMIUM));
+		lista.add(new ContaCorrente(1, 523, Calendar.getInstance(), 67, TipoConta.ESPECIAL));
 		
 		//Exibir o saldo das contas
-		for (ContaCorrente cc : lista) {
-			System.out.println(cc.getSaldo());
+		for (ContaCorrente churros : lista) {
+			System.out.println(churros.getSaldo());
 		}
+		
+		lista.forEach(churros -> System.out.println(churros.getSaldo()));
 		
 	}
 	

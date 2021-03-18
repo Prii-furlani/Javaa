@@ -4,10 +4,11 @@ import java.util.Calendar;
 
 import br.com.fiap.exception.SaldoInsuficienteException;
 
-//Classe abstrata -> N�o pode ser instanciada e pode conter m�todos abstratos
+//Classe abstrata -> não pode ser instanciada 
+//e pode ou não ter métodos abstratos (sem implementação)
 
 public abstract class Conta {
-
+	
 	private int agencia;
 	
 	private int numero;
@@ -16,13 +17,14 @@ public abstract class Conta {
 	
 	protected double saldo;
 	
+	//CTRL + 3 -> ggas (gets e sets), gcuf (construtor)
+	
+	public abstract void retirar(double valor) throws SaldoInsuficienteException;
+	
 	public void depositar(double valor) {
 		saldo += valor;
 	}
 	
-	public abstract void retirar(double valor) throws SaldoInsuficienteException;
-
-	//CTRL + 3 -> ggas, gcuf
 	public Conta() {}
 	
 	public Conta(int agencia, int numero, Calendar dataAbertura, double saldo) {
@@ -32,10 +34,10 @@ public abstract class Conta {
 		this.saldo = saldo;
 	}
 
+	//Gets e sets
 	public int getAgencia() {
 		return agencia;
 	}
-
 
 	public void setAgencia(int agencia) {
 		this.agencia = agencia;

@@ -4,24 +4,29 @@ import java.util.Calendar;
 
 import br.com.fiap.exception.SaldoInsuficienteException;
 
+//A primeira classe "concreta" deve implementar os m√©todos abstratos
+
 public class ContaCorrente extends Conta {
 
-	//CTRL + 1
-	private TipoConta tipo;
+	private TipoConta tipo; //CTRL + 1
 	
 	@Override
 	public void retirar(double valor) throws SaldoInsuficienteException {
-		//validar se a conta È comum e o saldo fica negativo dps do saque
+		// Tipo da conta √© comum e o saldo fica negativo dps do saque
 		if (tipo == TipoConta.COMUM && saldo - valor < 0) {
-			//LanÁar uma exception
 			throw new SaldoInsuficienteException(saldo);
 		}
 		saldo -= valor;
 	}
 
+//	@Override
+//	public void depositar(double valor) {
+//		saldo += valor; //saldo = saldo + valor;
+//	}
+	
 	//CTRL + 3 -> gcuf
 	public ContaCorrente() {}
-	
+
 	public ContaCorrente(int agencia, int numero, Calendar dataAbertura, double saldo, TipoConta tipo) {
 		super(agencia, numero, dataAbertura, saldo);
 		this.tipo = tipo;
@@ -34,5 +39,5 @@ public class ContaCorrente extends Conta {
 	public void setTipo(TipoConta tipo) {
 		this.tipo = tipo;
 	}
-	
+
 }
